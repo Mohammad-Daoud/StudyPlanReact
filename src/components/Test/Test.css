@@ -1,0 +1,29 @@
+.testDaoud {
+    width: 100%;
+}
+
+.tree-container {
+    width: 100%;
+}
+
+.listElement {
+    width: 125px;
+    height: 75px;
+    background-color: #4CAF50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.listElement:hover{
+    background-color: green;
+}
+
+.list {
+    display: flex;
+    justify-content: space-around;
+    background-color: green;
+}
