@@ -162,6 +162,12 @@ function Test() {
             <label >{firstName} {lastName} | {studentID}  </label>
             <br></br>
             <label >{schoolName} {departmentName} | {year} </label>
+            <br></br>
+            <strong><a style={{
+                color:"#FF2E2E",
+                "text-decoration-line":"none"
+            }} href="http://localhost:8080/login"
+            onClick={()=>{}}>Logout</a></strong>
             </div>
             <div className='listElement'
                 onClick={()=>{
