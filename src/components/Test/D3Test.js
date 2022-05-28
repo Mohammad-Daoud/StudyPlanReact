@@ -1,10 +1,9 @@
 import './Test.css';
-import TreeChart from "@ssthouse/react-tree-chart";
-import { Direction, TreeLinkStyle } from '@ssthouse/tree-chart-core';
+import TreeChart from "react-d3-tree";
 import "@ssthouse/react-tree-chart/lib/react-tree-chart.css";
 import { useEffect, useState } from 'react';
-import getResponse from "./../../utils/RequestHandler";
-import obj from "./../../test1.json"
+import getResponse from "../../utils/RequestHandler";
+import obj from "../../test1.json"
 function getNode(bigNode,courses,taken){
     
     let hasChilds = false;
@@ -37,7 +36,7 @@ function getNode(bigNode,courses,taken){
             return {value : bigNode.courseName};
     }
 }
-function Test() {
+function D3Test() {
    
     const windowUrl = window.location.search;
     const params = new URLSearchParams(windowUrl);
@@ -51,7 +50,7 @@ function Test() {
     
     const [response, setResponse] = useState(obj);
     const responseData = async()=>{ 
-         getResponse(schoolName, departmentName, year,username).then((res)=>{
+         getResponse("kasit", "cs", 2017,"mhm0173632").then((res)=>{
         setResponse(res);
     });
 };
@@ -142,8 +141,7 @@ function Test() {
                "justifyContent": "space-around",
                "position":"fixed",
                "width":"100%",
-               "zIndex":"999",
-               "borderBottom":"5px #FF2E2E solid "
+               "zIndex":"1000"
                }}>
                    <div style={{
                 "margin-left":"20px"
@@ -181,17 +179,17 @@ function Test() {
             >
                 Faculty Plan
             </div>
-          
+        
         </header>
       <TreeChart
         
         className="testDaoud"
-        dataset={data}
+        data={data}
         collapseEnabled={true}
  
         style={{
-          width: "100%",
-          height: "5000px"
+          width: "100em",
+          height: "5000em",
           
         }}
         renderCustomNode={({ data, collapsed }) => {
@@ -214,10 +212,7 @@ function Test() {
                   )
             }else{
                 return (
-                    <div  style={{
-                        "position":"relative",
-                        "zIndex":"99"
-                    }}>
+                    <div>
                       <span className= 'circle' style={{
                           "color": "white",
                           "textAlign" : "center",
@@ -236,4 +231,4 @@ function Test() {
   );
 }
 
-export default Test;
+export default D3Test;

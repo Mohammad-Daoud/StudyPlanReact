@@ -10,6 +10,8 @@ import {
   Switch,
 } from "react-router-dom";
 import Test from './components/Test/Test';
+import Navbar from './components/Test/Navbar';
+import Daoud from './components/Test/D3Test';
 
 
 
@@ -18,10 +20,15 @@ function App() {
 
   return (
     <div className="App">
+       <Navbar/>
       <Router>
        <Routes>
-  
-         <Route path='/' element={<Test />}/>
+       <Route path='/daoud' element={
+         <Daoud />
+         }/>
+         <Route path='/' element={
+         <Test />
+         }/>
 
        </Routes>
       </Router>
