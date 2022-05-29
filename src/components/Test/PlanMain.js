@@ -3,8 +3,8 @@ import TreeChart from "@ssthouse/react-tree-chart";
 import { Direction, TreeLinkStyle } from '@ssthouse/tree-chart-core';
 import "@ssthouse/react-tree-chart/lib/react-tree-chart.css";
 import { useEffect, useState } from 'react';
-import getResponse from "./../../utils/RequestHandler";
-import obj from "./../../test1.json"
+import getResponse from "../../utils/RequestHandler";
+import obj from "../../initJson.json"
 function getNode(bigNode,courses,taken){
     
     let hasChilds = false;
@@ -37,7 +37,7 @@ function getNode(bigNode,courses,taken){
             return {value : bigNode.courseName};
     }
 }
-function Test() {
+function PlanMain() {
    
     const windowUrl = window.location.search;
     const params = new URLSearchParams(windowUrl);
@@ -159,9 +159,9 @@ function Test() {
                 "margin-left":"25px",
                 "color":"white"
             }}>
-            <label >{firstName} {lastName} | {studentID}  </label>
+             <label >{firstName} {lastName} <strong style={{"color":"rgb(238, 251, 238)"}}>|</strong> {studentID}  </label>
             <br></br>
-            <label >{schoolName} {departmentName} | {year} </label>
+            <label style={{textTransform:"uppercase"}}>{schoolName} {departmentName} <strong style={{"color":"rgb(238, 251, 238)"}}>|</strong> {year} </label>
             <br></br>
             <strong><a style={{
                 color:"#FF2E2E",
@@ -247,4 +247,4 @@ function Test() {
   );
 }
 
-export default Test;
+export default PlanMain;
