@@ -49,7 +49,8 @@ function PlanMain() {
     const lastName = params.get("lname");
     const studentID = params.get("studentID");
     const instructorID = params.get("instructorID");
-    
+
+
     const [response, setResponse] = useState(obj);
     const responseData = async()=>{ 
          getResponse(schoolName, departmentName, year,username).then((res)=>{
@@ -170,6 +171,18 @@ function PlanMain() {
             }} href="http://localhost:8080/login"
             onClick={()=>{}}>Logout</a></strong>
             </div>
+            {!studentID && 
+            <div className='listElement'>
+                <a href={'http://localhost:8000/downloadCSVPlan/'+schoolName
+                        +'/'+departmentName
+                        +'/'+year} style={{"textDecorationLine":"none",
+            "color":"white"}}>Download This Plan</a> 
+            </div>}
+            {!studentID && 
+            <div className='listElement'>
+            <a href='http://localhost:8000/downloadCSVUniversityPlan' style={{"textDecorationLine":"none",
+            "color":"white"}}>Download University Plan</a> 
+            </div>}
             <div className='listElement'
                 onClick={()=>{
                     setIndex(0);
