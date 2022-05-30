@@ -48,6 +48,7 @@ function PlanMain() {
     const firstName = params.get("fname");
     const lastName = params.get("lname");
     const studentID = params.get("studentID");
+    const instructorID = params.get("instructorID");
     
     const [response, setResponse] = useState(obj);
     const responseData = async()=>{ 
@@ -159,7 +160,7 @@ function PlanMain() {
                 "margin-left":"25px",
                 "color":"white"
             }}>
-             <label >{firstName} {lastName} <strong style={{"color":"rgb(238, 251, 238)"}}>|</strong> {studentID}  </label>
+             <label >{firstName} {lastName} <strong style={{"color":"rgb(238, 251, 238)"}}>|</strong> {studentID}{instructorID}  </label>
             <br></br>
             <label style={{textTransform:"uppercase"}}>{schoolName} {departmentName} <strong style={{"color":"rgb(238, 251, 238)"}}>|</strong> {year} </label>
             <br></br>
