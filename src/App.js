@@ -9,11 +9,7 @@ import {
   Routes,
   Switch,
 } from "react-router-dom";
-import Plan from './components/Test/PlanMain';
-
-
-
-
+import Plan from './components/MainComponent/PlanMain';
 
 function App() {
 
