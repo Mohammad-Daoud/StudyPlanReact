@@ -76,7 +76,7 @@
     color: rgb(238, 251, 238);
     text-align: center;
     border-radius: 6px;
-    border: 1px #08730cb3 solid ;
+    border: 2px #08730cb3 solid ;
     padding: 5px 0;
     position: absolute;
     z-index: 1;
@@ -114,7 +114,7 @@
     color: rgb(238, 251, 238);
     text-align: center;
     border-radius: 6px;
-    border: 1px #08730cb3 solid ;
+    border: 2px #FF2E2E solid ;
     padding: 5px 0;
     position: absolute;
     z-index: 1;

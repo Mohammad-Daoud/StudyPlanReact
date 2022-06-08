@@ -275,7 +275,7 @@ function PlanMain() {
               dataset={data}
               collapseEnabled={true}
               style={{
-                width: "1900px",
+                width: "2100px",
                 height: "5000px",
               }}
               renderCustomNode={({ data, collapsed }) => {
@@ -299,9 +299,9 @@ function PlanMain() {
                           }}
                         >
                           {studentID && (
-                            <div className="tooltip2">
+                            <div className="tooltip">
                               {data.value}
-                              <span className="tooltiptext2">TAKEN !</span>
+                              <span className="tooltiptext">✅ Taken</span>
                             </div>
                           )}
                           {instructorID && <div>{data.value}</div>}
@@ -343,7 +343,7 @@ function PlanMain() {
                         {studentID && (
                           <div className="tooltip2">
                             {data.value}
-                            <span className="tooltiptext2">STILL !</span>
+                            <span className="tooltiptext2">❌ Not Taken</span>
                           </div>
                         )}
                         {instructorID && <div>{data.value}</div>}
