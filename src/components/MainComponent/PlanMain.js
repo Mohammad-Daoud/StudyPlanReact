@@ -24,26 +24,40 @@ function getNode(bigNode, courses, taken) {
     childrens.map((child) => {
       nodes.push(getNode(child, courses, taken));
     });
-    if (taken.includes(bigNode.courseID)
-    || bigNode.courseName.includes("PLACEMENT TEST")
-    || bigNode.courseName.includes("BASICS OF")){
-        if(bigNode.courseName.includes("PLACEMENT TEST")
-        || bigNode.courseName.includes("BASICS OF")){
-            if(taken.includes(bigNode.courseID))
-            return { value: bigNode.courseName, children: nodes, color: "#FF2E2E" }
+    if (
+      taken.includes(bigNode.courseID) ||
+      bigNode.courseName.includes("PLACEMENT TEST") ||
+      bigNode.courseName.includes("BASICS OF")
+    ) {
+      if (
+        bigNode.courseName.includes("PLACEMENT TEST") ||
+        bigNode.courseName.includes("BASICS OF")
+      ) {
+        if (taken.includes(bigNode.courseID))
+          return {
+            value: bigNode.courseName,
+            children: nodes,
+            color: "#FF2E2E",
+          };
         return { value: bigNode.courseName, children: nodes, color: "#8f8f8f" };
-        }return { value: bigNode.courseName, children: nodes, color: "#FF2E2E" };
-    }else return { value: bigNode.courseName, children: nodes };
+      }
+      return { value: bigNode.courseName, children: nodes, color: "#FF2E2E" };
+    } else return { value: bigNode.courseName, children: nodes };
   } else {
-    if (taken.includes(bigNode.courseID)
-    || bigNode.courseName.includes("PLACEMENT TEST")
-    || bigNode.courseName.includes("BASICS OF")){
-        if(bigNode.courseName.includes("PLACEMENT TEST")
-        || bigNode.courseName.includes("BASICS OF")){
-            if(taken.includes(bigNode.courseID))
-            return { value: bigNode.courseName, color: "#FF2E2E" };
-         } return { value: bigNode.courseName, color: "#FF2E2E" };
-  }else return { value: bigNode.courseName };
+    if (
+      taken.includes(bigNode.courseID) ||
+      bigNode.courseName.includes("PLACEMENT TEST") ||
+      bigNode.courseName.includes("BASICS OF")
+    ) {
+      if (
+        bigNode.courseName.includes("PLACEMENT TEST") ||
+        bigNode.courseName.includes("BASICS OF")
+      ) {
+        if (taken.includes(bigNode.courseID))
+          return { value: bigNode.courseName, color: "#FF2E2E" };
+      }
+      return { value: bigNode.courseName, color: "#FF2E2E" };
+    } else return { value: bigNode.courseName };
   }
 }
 function PlanMain() {
@@ -255,75 +269,94 @@ function PlanMain() {
       </header>
       <div className="testDaoud">
         <TransformWrapper initialScale={1}>
-              <TransformComponent>
-                <TreeChart
-                  className="testDaoud"
-                  dataset={data}
-                  collapseEnabled={true}
-                  style={{
-                    width: "1900px",
-                    height: "5000px",
-                  }}
-                  renderCustomNode={({ data, collapsed }) => {
-                    if (data.color) {
-                      return (
-                        <div 
-                          style={{
-                            marginTop: "20px",
-                            position: "relative",
-                            zIndex: "99",
-                          }}
-                        >
-                          <div 
-                            className="circle"
-                            style={{
-                              color: "white",
-                              textAlign: "center",
-                              margin: "25px",
-                              backgroundColor: data.color,
-                            }}
-                          >
-                              <div className="tooltip">
-                            {data.value}
-                            <span className="tooltiptext">
-                                TAKEN !
-                            </span>
-                            </div>
-                          </div>
-                          
-                        </div>
-                      );
-                    } else {
-                      return (
-                        <div
-                          style={{
-                            marginTop: "20px",
-                            position: "relative",
-                            zIndex: "99",
-                          }}
-                        >
-                          <span
-                            className="circle"
-                            style={{
-                              color: "white",
-                              textAlign: "center",
-                              margin: "25px",
-                              backgroundColor: "#4CAF50",
-                            }}
-                          >
-                           <div className="tooltip2">
-                            {data.value}
-                            <span className="tooltiptext2">
-                                STILL !
-                            </span>
-                            </div>
-                          </span>
-                        </div>
-                      );
-                    }
-                  }}
-                />
-              </TransformComponent>
+          <TransformComponent>
+            <TreeChart
+              className="testDaoud"
+              dataset={data}
+              collapseEnabled={true}
+              style={{
+                width: "1900px",
+                height: "5000px",
+              }}
+              renderCustomNode={({ data, collapsed }) => {
+                if (data.color) {
+                  return (
+                    <div
+                      style={{
+                        marginTop: "20px",
+                        position: "relative",
+                        zIndex: "99",
+                      }}
+                    >
+                     {studentID &&  <div
+                        className="circle"
+                        style={{
+                          color: "white",
+                          textAlign: "center",
+                          margin: "25px",
+                          backgroundColor: data.color,
+                        }}
+                        
+                      >
+                         {studentID && <div className="tooltip2">
+                          {data.value}
+                          <span className="tooltiptext2">STILL !</span>
+                        </div>}
+                        {instructorID && 
+                        <div>{data.value}</div>}
+                      </div>}
+                      {instructorID && 
+                       <div
+                       className="circle"
+                       style={{
+                         color: "white",
+                         textAlign: "center",
+                         margin: "25px",
+                         backgroundColor: "#4CAF50",
+                       }}
+                       
+                     >
+                        {studentID && <div className="tooltip2">
+                         {data.value}
+                         <span className="tooltiptext2">STILL !</span>
+                       </div>}
+                       {instructorID && 
+                       <div>{data.value}</div>}
+                     </div>}
+                    </div>
+                  );
+                } else {
+                  return (
+                    <div
+                      style={{
+                        marginTop: "20px",
+                        position: "relative",
+                        zIndex: "99",
+                      }}
+                    >
+                      <span
+                        className="circle"
+                        style={{
+                          color: "white",
+                          textAlign: "center",
+                          margin: "25px",
+                          backgroundColor: "#4CAF50",
+                        }}
+                      >
+                        {studentID && <div className="tooltip2">
+                          {data.value}
+                          <span className="tooltiptext2">STILL !</span>
+                        </div>}
+                        {instructorID && 
+                        <div>{data.value}</div>}
+                        
+                      </span>
+                    </div>
+                  );
+                }
+              }}
+            />
+          </TransformComponent>
         </TransformWrapper>
       </div>
     </div>
