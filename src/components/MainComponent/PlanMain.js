@@ -288,41 +288,38 @@ function PlanMain() {
                         zIndex: "99",
                       }}
                     >
-                     {studentID &&  <div
-                        className="circle"
-                        style={{
-                          color: "white",
-                          textAlign: "center",
-                          margin: "25px",
-                          backgroundColor: data.color,
-                        }}
-                        
-                      >
-                         {studentID && <div className="tooltip2">
-                          {data.value}
-                          <span className="tooltiptext2">STILL !</span>
-                        </div>}
-                        {instructorID && 
-                        <div>{data.value}</div>}
-                      </div>}
-                      {instructorID && 
-                       <div
-                       className="circle"
-                       style={{
-                         color: "white",
-                         textAlign: "center",
-                         margin: "25px",
-                         backgroundColor: "#4CAF50",
-                       }}
-                       
-                     >
-                        {studentID && <div className="tooltip2">
-                         {data.value}
-                         <span className="tooltiptext2">STILL !</span>
-                       </div>}
-                       {instructorID && 
-                       <div>{data.value}</div>}
-                     </div>}
+                      {studentID && (
+                        <div
+                          className="circle"
+                          style={{
+                            color: "white",
+                            textAlign: "center",
+                            margin: "25px",
+                            backgroundColor: data.color,
+                          }}
+                        >
+                          {studentID && (
+                            <div className="tooltip2">
+                              {data.value}
+                              <span className="tooltiptext2">TAKEN !</span>
+                            </div>
+                          )}
+                          {instructorID && <div>{data.value}</div>}
+                        </div>
+                      )}
+                      {instructorID && (
+                        <div
+                          className="circle"
+                          style={{
+                            color: "white",
+                            textAlign: "center",
+                            margin: "25px",
+                            backgroundColor: "#4CAF50",
+                          }}
+                        >
+                           <div>{data.value}</div>
+                        </div>
+                      )}
                     </div>
                   );
                 } else {
@@ -343,13 +340,13 @@ function PlanMain() {
                           backgroundColor: "#4CAF50",
                         }}
                       >
-                        {studentID && <div className="tooltip2">
-                          {data.value}
-                          <span className="tooltiptext2">STILL !</span>
-                        </div>}
-                        {instructorID && 
-                        <div>{data.value}</div>}
-                        
+                        {studentID && (
+                          <div className="tooltip2">
+                            {data.value}
+                            <span className="tooltiptext2">STILL !</span>
+                          </div>
+                        )}
+                        {instructorID && <div>{data.value}</div>}
                       </span>
                     </div>
                   );
